@@ -11,4 +11,16 @@ fn main() {
             break;
         }
     }
+    let mut i = 0;
+
+    while i <= 5 {
+        println!("i = {}", i);
+        i += 1;
+    }
+
+
+    for j in 1..=5 {
+        println!("j = {}", j);
+    }
+    
 }

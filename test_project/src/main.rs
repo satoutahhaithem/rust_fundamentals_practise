@@ -8,4 +8,13 @@ fn main() {
         "Short"
     };
     println!("The person is: {}", result);
+
+    let health = if height <= 180 { "good" } else { "unknown" };
+    println!("Health: {}", health);
+
+    // shadowing to a different type
+    let health = if height < 180 { true } else { false };
+
+    
+
 }
