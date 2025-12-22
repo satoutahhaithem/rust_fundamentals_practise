@@ -1,0 +1,7 @@
+{
+  "editor.codeLens": true,
+  "rust-analyzer.codelens.run": true,
+  "rust-analyzer.codelens.debug": true,
+  "rust-analyzer.checkOnSave": true,
+  "rust-analyzer.trace.server": "verbose"
+}

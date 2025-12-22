@@ -1,14 +1,14 @@
 //! Colorized output utilities for the terminal using ANSI escape codes.
 //! # Examples:
 //! ```
-//! use cli_utils::colors::*;
+//! use doc_your_code::colors::*;
 //! println!("{}{}{}", red("Red"), green("Green"), blue("Blue"));
 //! ```
 
 /// Returns a string with the ANSI escape code for red.
 /// # Examples:
 /// ```
-/// use cli_utils::colors::*;
+/// use doc_your_code::colors::*;
 /// println!("{}", red("Red"));
 /// ```
 pub fn red(s: &str) -> String {
@@ -31,7 +31,7 @@ pub fn reset(s: &str) -> String {
     format!("\x1b[0m{}\x1b[0m", s)
 }
 
-pub enum Color{
+pub enum Color {
     Red,
     Green,
     Blue,
@@ -41,7 +41,7 @@ pub enum Color{
 pub struct ColorString {
     pub color: Color,
     pub string: String,
-    pub colorized: String
+    pub colorized: String,
 }
 
 impl ColorString {
@@ -58,5 +58,4 @@ impl ColorString {
     pub fn reset(&mut self) {
         self.colorized = reset(&self.string);
     }
-
 }

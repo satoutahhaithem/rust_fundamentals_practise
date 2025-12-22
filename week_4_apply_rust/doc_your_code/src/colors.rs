@@ -5,7 +5,7 @@
 //!
 //! # Examples
 //! ```
-//! use cli_utils::colors::*;
+//! use doc_your_code::colors::*;
 //! println!("{} {} {}", red("Red"), green("Green"), blue("Blue"));
 //! ```
 
@@ -13,7 +13,7 @@
 ///
 /// # Examples
 /// ```
-/// use cli_utils::colors::red;
+/// use doc_your_code::colors::red;
 /// assert_eq!(red("x"), "\x1b[31mx\x1b[0m");
 /// ```
 pub fn red(s: &str) -> String {
@@ -24,7 +24,7 @@ pub fn red(s: &str) -> String {
 ///
 /// # Examples
 /// ```
-/// use cli_utils::colors::green;
+/// use doc_your_code::colors::green;
 /// assert_eq!(green("x"), "\x1b[32mx\x1b[0m");
 /// ```
 pub fn green(s: &str) -> String {
@@ -35,7 +35,7 @@ pub fn green(s: &str) -> String {
 ///
 /// # Examples
 /// ```
-/// use cli_utils::colors::blue;
+/// use doc_your_code::colors::blue;
 /// assert_eq!(blue("x"), "\x1b[34mx\x1b[0m");
 /// ```
 pub fn blue(s: &str) -> String {
@@ -46,7 +46,7 @@ pub fn blue(s: &str) -> String {
 ///
 /// # Examples
 /// ```
-/// use cli_utils::colors::bold;
+/// use doc_your_code::colors::bold;
 /// assert_eq!(bold("x"), "\x1b[1mx\x1b[0m");
 /// ```
 pub fn bold(s: &str) -> String {
@@ -84,7 +84,7 @@ pub enum Color {
 ///
 /// # Examples
 /// ```
-/// use cli_utils::colors::{Color, ColorString};
+/// use doc_your_code::colors::{Color, ColorString};
 /// let mut s = ColorString::new(Color::Red, "hello");
 /// s.paint();
 /// assert!(s.colorized().contains("hello"));
@@ -104,7 +104,11 @@ impl ColorString {
     /// The returned instance has an empty `colorized` field until `paint` or
     /// `into_colorized` is called.
     pub fn new(color: Color, string: impl Into<String>) -> Self {
-        ColorString { color, string: string.into(), colorized: String::new() }
+        ColorString {
+            color,
+            string: string.into(),
+            colorized: String::new(),
+        }
     }
 
     /// Paint the internal `string` using the configured `color` and store the
@@ -112,7 +116,7 @@ impl ColorString {
     ///
     /// # Examples
     /// ```
-    /// use cli_utils::colors::{Color, ColorString};
+    /// use doc_your_code::colors::{Color, ColorString};
     /// let mut s = ColorString::new(Color::Green, "ok");
     /// s.paint();
     /// assert!(s.colorized().contains("ok"));
@@ -137,7 +141,7 @@ impl ColorString {
     ///
     /// This is convenient when you want the final colored string and do not
     /// need to keep the `ColorString` value afterwards.
-    
+
     pub fn into_colorized(mut self) -> String {
         if self.colorized.is_empty() {
             self.paint();
@@ -148,7 +152,7 @@ impl ColorString {
     /// Borrow the current cached colorized string.
     ///
     /// If `paint` has not been called, this will be an empty string slice.
-    
+
     pub fn colorized(&self) -> &str {
         &self.colorized
     }

@@ -1,0 +1,25 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug sample_app",
+      "program": "${workspaceFolder}/week_4_apply_rust/sample_app/target/debug/sample_app",
+      "args": [],
+      "cwd": "${workspaceFolder}/week_4_apply_rust/sample_app",
+      "terminal": "integratedTerminal",
+      "preLaunchTask": "cargo: build sample_app"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug debug_",
+      "program": "${workspaceFolder}/week_4_apply_rust/debug_/target/debug/debug_",
+      "args": [],
+      "cwd": "${workspaceFolder}/week_4_apply_rust/debug_",
+      "terminal": "integratedTerminal",
+      "preLaunchTask": "cargo: build debug_"
+    }
+  ]
+}
